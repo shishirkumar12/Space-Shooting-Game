@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Shooting Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-info">
+            <div class="score">Score: <span id="score">0</span></div>
+            <div class="enemies-defeated">Number of kills: <span id="enemies-defeated">0</span></div>
+            <div class="weapon-level">Weapon Level: <span id="weapon-level">1</span></div>
+            <div class="shield">shield: <span id="shield-count">0</span></div>
+            <div class="difficulty">Difficulty: <span id="difficulty-display">Medium</span></div>
+            <div class="character">Aircraft: <span id="character-display">Standard</span></div>
+            <div class="player-name">Player: <span id="player-name-display">Anonymous</span></div>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <div id="game-over" class="hidden">
+            <h2>game over</h2>
+            <p>Player Name: <span id="final-player-name">Anonymous</span></p>
+            <p>Final Score: <span id="final-score">0</span></p>
+            <p>Number of kills: <span id="final-enemies-defeated">0</span></p>
+            <p>Difficulty: <span id="final-difficulty">Medium</span></p>
+            <p>Aircraft used: <span id="final-character">Standard</span></p>
+            <p>Ranking: <span id="ranking-position">-</span>Bit</p>
+            <div id="rankings-container">
+                <h3>High Score</h3>
+                <table id="rankings-table">
+                    <thead>
+                        <tr>
+                            <th>Ranking</th>
+                            <th>Player</th>
+                            <th>Score</th>
+                            <th>Number of kills</th>
+                            <th>Difficulty</th>
+                            <th>Aircraft</th>
+                            <th>date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rankings-body">
+                        <!-- Ranking data goes here -->
+                    </tbody>
+                </table>
+            </div>
+            <button id="restart-button">Play again</button>
+            <p class="restart-note">*You can reselect the difficulty level and aircraft.</p>
+        </div>
+        <div id="game-start">
+            <h2>Space Shooting Game</h2>
+            <div class="player-name-input">
+                <p>Enter player name:</p>
+                <input type="text" id="player-name-input" maxlength="10" placeholder="Enter your name (up to 10 characters)">
+            </div>
+            <p>How to operate:</p>
+            <ul>
+                <li>Left and right arrow keys「←」「→」：Move the spaceship</li>
+                <li>Space bar: Fire a bullet</li>
+            </ul>
+            <p>item:</p>
+            <ul>
+                <li>Blue star: Weapon power-up (up to 5 levels)</li>
+                <li>Green Shield: Shield (blocks one attack)</li>
+            </ul>
+            <div class="difficulty-selection">
+                <p>Select difficulty level:</p>
+                <div class="difficulty-buttons">
+                    <button id="easy-button" class="difficulty-button">Easy</button>
+                    <button id="medium-button" class="difficulty-button selected">Medium</button>
+                    <button id="hard-button" class="difficulty-button">Hard</button>
+                </div>
+            </div>
+            <div class="character-selection">
+                <p>Select aircraft:</p>
+                <div class="character-grid">
+                    <div class="character-option selected" data-character="standard">
+                        <div class="character-preview standard"></div>
+                        <p>Standard</p>
+                        <p class="character-stats">Balanced</p>
+                    </div>
+                    <div class="character-option" data-character="speed">
+                        <div class="character-preview speed"></div>
+                        <p>Speed</p>
+                        <p class="character-stats">High-speed movement</p>
+                    </div>
+                    <div class="character-option" data-character="power">
+                        <div class="character-preview power"></div>
+                        <p>Power</p>
+                        <p class="character-stats">High heat</p>
+                    </div>
+                    <div class="character-option" data-character="defense">
+                        <div class="character-preview defense"></div>
+                        <p>Defense</p>
+                        <p class="character-stats">High durability</p>
+                    </div>
+                </div>
+            </div>
+            <button id="start-button">Game Start</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
